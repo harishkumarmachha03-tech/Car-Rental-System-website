@@ -1,0 +1,454 @@
+
+*{           /*this is a universal selctor which is used for styling the all the elements in a web page*/           
+    text-decoration: none; /*by default set the text of all the elements will be set to none*/
+    list-style-type: none; /*default remove the highlights or unnecessary things */
+    margin: 0;/*intially there is no space gap btwn the edges and content of the element*/
+    padding: 0;  /*intially there is no space around the border*/
+    /*font-family: "Poppins",sans-serif;*//*this is font import from the google fonts*/
+    box-sizing: border-box;
+    
+}
+
+header{
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+    background-color: #be741b; 
+    padding: 10px 80px; 
+    color:rgb(198, 94, 34);  
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+
+}
+
+.logo img{
+    width:50px; /*arranging the width of the logo to */
+} 
+#menu-icon {
+    font-size: 2rem;               /* Sets size of the menu icon */
+    color: white;                  /* Icon color */
+    cursor: pointer;              /* Shows pointer cursor on hover */
+    display: none;                /* Hidden by default on large screens */
+    z-index: 999;                 /* Stays on top of other elements */
+}
+
+
+nav {
+  display: flex;                       /* Arrange links horizontally */
+  justify-content: center;            /* Center the nav links */
+  align-items: center;
+  gap: 30px;                           /* Space between links */
+  background-color: #333;             /* Dark background */
+  padding: 15px 0;                    /* Top & bottom padding */
+}
+
+/* Anchor tags inside nav */
+nav a {
+  color: white;                       /* Link text color */
+  text-decoration: none;             /* Remove underline */
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 16px;                 /* Padding inside each link */
+  border-radius: 5px;                /* Rounded corners for hover effect */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect on links */
+nav a:hover {
+  background-color: #f0803c;          /* Orange background on hover */
+  color: white;                       /* Keep text white on hover */
+}
+.Home {
+    width: 100%; 
+    min-height: 100vh; 
+    position: relative; 
+    background: url(CAR-RENTALSYSTEM.webp); /*used to dispaly the info in the background of the main text*/
+    background-repeat: no-repeat; /**/
+    background-position: center right;
+    background-size: cover;
+    display:grid;
+    align-items:center;
+    grid-template-columns: repeat(2,1fr); 
+    padding: 0 100px; 
+    color:white; 
+    
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7); 
+} 
+Home::before{ /*which will be */
+    content: "";
+    position: absolute; /*relative is fixed and absolute is not fixed */
+    top:0; 
+    left:0;  
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1; /* determines the proirity font or form it is less priority*/
+}
+text {
+    position: relative; 
+    z-index: 2; /*higher priority*/
+
+}
+.text h1{
+    font-size: 3.5rem;/*its is a relative to root element */
+    letter-spacing: .5px;
+    line-height: 1.2; 
+    color: #16bf54
+} 
+.text span{
+    color: white; 
+}
+.text p{
+    margin:0.5rem 0 1.5 rem; 
+    font-size:1.2rem; 
+    max-width: 500px; 
+}
+#car-rental-offers {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); 
+  gap:2rem; 
+  padding:0 50px;  
+  margin:3rem 0;  
+
+
+}.heading {
+  text-align: center;
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-bottom: 3px solid #ff6600;
+}
+
+.heading h2 {
+  font-size: 2.5rem;
+  color: #ff6600;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#car-rental-offers .offer {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Offer Image */
+#car-rental-offers .offer img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Offer Heading */
+#car-rental-offers .offer h3 {
+  font-size: 1.3rem;
+  color: #e67e22;
+  margin-bottom: 10px;
+}
+
+/* Offer Description */
+#car-rental-offers .offer p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+#car-rental-offers .offer .btn {
+  display: inline-block;
+  background-color: #f0803c;              /* Bright orange button */
+  color: #fff;                            /* White text */
+  padding: 10px 20px;                     /* Button size */
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;                  /* Remove underline */
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#car-rental-offers.offer .btn:hover {
+  background-color: #d96b2d;              /* Darker orange on hover */
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+  #car-rental-offers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  #car-rental-offers .offer {
+    margin: 0;
+  }
+}
+
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #ebe4e4;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+
+h2 {
+  text-align: center;
+  color: #201f1f;
+  margin-bottom: 20px;
+}
+
+.rental-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.rental-form label {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.rental-form input,
+.rental-form select {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #eeeaea;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.rental-form button {
+  margin-top: 25px;
+  padding: 12px;
+  background-color: #007bff;
+  color: rgb(23, 22, 22);
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rental-form button:hover {
+  background-color: #0056b3;
+}
+.button {
+  display: inline-block;
+  margin: 15px 10px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #151313;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #181818;
+  line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #007bff;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Container */
+.container {
+ max-width: 1200px;
+ margin: 30px auto;
+ padding: 0 20px;
+       
+}
+
+/* Heading */
+.container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #090909;
+}
+
+/* Car List Layout */
+.car-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Individual Car Card */
+.car-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 260px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.car-card:hover {
+  transform: scale(1.03);
+}
+
+.car-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.car-card h3 {
+  font-size: 20px;
+  margin: 15px 0 5px;
+  color: #007bff;
+  text-align: center;
+}
+
+.car-card p {
+  font-size: 16px;
+  margin: 5px 0;
+  text-align: center;
+}
+.car-card .btn {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #f0803c;                 /* Orange button */
+  color: #fff;                               /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.car-card .btn:hover {
+  background-color: #d96b2d;                 /* Darker shade on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .car-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+}
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #007bff;
+  padding: 15px;
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Help Section */
+.help {
+  max-width: 700px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.help h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.help p {
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.help ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+
+.help li {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Responsive Navigation */
+@media (max-width: 600px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  .help {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>Booking Confirmation ✅</h2>
+    <p>Thank you for booking with <strong>EasyCar Rentals</strong>.</p>
+
+    <div id="details">
+      <p><strong>Name:</strong> <span id="confName"></span></p>
+      <p><strong>Mobile:</strong> <span id="confMobile"></span></p>
+      <p><strong>Car:</strong> <span id="confCar"></span></p>
+      <p><strong>Pickup Date:</strong> <span id="confPickup"></span></p>
+      <p><strong>Drop Date:</strong> <span id="confDrop"></span></p>
+    </div>
+
+    <a href="index.html" class="button">Go to Home</a>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("bookingData"));
+    if (data) {
+      document.getElementById("confName").textContent = data.name;
+      document.getElementById("confMobile").textContent = data.mobile;
+      document.getElementById("confCar").textContent = data.car;
+      document.getElementById("confPickup").textContent = data.pickup;
+      document.getElementById("confDrop").textContent = data.drop;
+    } else {
+      document.getElementById("details").innerHTML = "<p>No booking data found.</p>";
+    }
+  </script>
+</body>
+</html>

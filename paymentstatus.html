@@ -1,0 +1,144 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Status</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .status-box {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .status-box h2 {
+      color: green;
+      font-size: 28px;
+    }
+    .status-box p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container status-box">
+    <h2>Payment Successful ✅</h2>
+    <p>Redirecting to confirmation page...</p>
+  </div>
+
+  <script>
+    // Simulate loading delay before redirect
+    setTimeout(function() {
+      window.location.href = "confirmation.html";
+    }, 3000); // Redirect after 3 seconds
+  </script>
+</body>
+</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Status</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .status-box {
+      text-align: center;
+      margin-top: 80px;
+    }
+    .status-box h2 {
+      color: green;
+      font-size: 28px;
+    }
+    .status-box p {
+      font-size: 18px;
+      margin: 8px 0;
+    }
+    .details {
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .details h3 {
+      margin-bottom: 10px;
+      color: #444;
+    }
+    .details p span {
+      font-weight: bold;
+    }
+    .redirect-note {
+      margin-top: 30px;
+    }
+    .redirect-note a {
+      color: #007bff;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container status-box">
+    <h2>✅ Payment Successful</h2>
+    <p>Your transaction has been completed.</p>
+
+    <div class="details" id="paymentDetails">
+      <h3>Payment Summary</h3>
+      <p><span>Booking Reference:</span> <span id="bookingRef"></span></p>
+      <p><span>Payment Method:</span> <span id="method"></span></p>
+      <p><span>Transaction ID:</span> <span id="txnId"></span></p>
+      <p><span>Payment Time:</span> <span id="txnTime"></span></p>
+    </div>
+
+    <p class="redirect-note">
+      Redirecting to confirmation page in <span id="countdown">3</span> seconds...<br />
+      <a href="confirmation.html">Click here if not redirected</a>
+    </p>
+  </div>
+
+  <script>
+    const payment = JSON.parse(localStorage.getItem("paymentData")) || {};
+    const txnTime = new Date().toLocaleString();
+
+    // Generate fake booking and transaction reference numbers
+    const bookingRef = "BR" + Math.floor(100000 + Math.random() * 900000);
+    const txnId = "TXN" + Math.floor(100000000 + Math.random() * 900000000);
+
+    // Decide method
+    const method = payment.upi ? "UPI (" + payment.upi + ")" 
+                 : payment.card ? "Card ending with " + payment.card.slice(-4) 
+                 : "Not Provided";
+
+    // Fill in the HTML
+    document.getElementById("bookingRef").textContent = bookingRef;
+    document.getElementById("method").textContent = method;
+    document.getElementById("txnId").textContent = txnId;
+    document.getElementById("txnTime").textContent = txnTime;
+
+    // Optional: Save for confirmation page
+    localStorage.setItem("txnInfo", JSON.stringify({
+      bookingRef,
+      method,
+      txnId,
+      txnTime
+    }));
+
+    // Countdown + Redirect
+    let countdown = 3;
+    const timer = setInterval(() => {
+      countdown--;
+      document.getElementById("countdown").textContent = countdown;
+      if (countdown === 0) {
+        clearInterval(timer);
+        window.location.href = "confirmation.html";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
